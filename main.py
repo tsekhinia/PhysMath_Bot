@@ -1,5 +1,6 @@
 import telebot
 from telebot import types
+import time
 
 bot = telebot.TeleBot('5803732373:AAFZBkx6X0eVwBl43ZOtkkFJNenMFuZqjn4', parse_mode='html')
 
@@ -774,12 +775,15 @@ def some_answer(message):
                     markup.add(*[types.KeyboardButton(s) for s in arr],
                                types.KeyboardButton('<–– Назад к предметам'))
                     bot.send_message(message.chat.id, 'Что из этого вы искали?', reply_markup=markup)
-                elif message.text.lower() == 'мгу топ': # Пасхалка 1
+                elif message.text.lower() == 'мгу топ':  # Пасхалка 1
                     bot.send_sticker(message.chat.id,
                                      open('/Users/ivan_tsekhin/PycharmProjects/tg_bot/pics/sticker.webp', 'rb'))
-                elif message.text.lower() == 'ты тупой': # Пасалка 2
+                elif message.text.lower() == 'ты тупой':  # Пасалка 2
                     bot.send_message(message.chat.id, 'Я знаю больше тебя')
                 else:
+                    file = open('errors.csv', 'a', buffering=1)
+                    file.write(
+                        f'{message.from_user.id}, {message.from_user.first_name} {message.from_user.last_name}, {time.asctime()}: {message.text}\n')
                     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
                     math = types.KeyboardButton('Математика')
                     phys = types.KeyboardButton('Физика')
