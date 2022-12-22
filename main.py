@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 import time
 
-bot = telebot.TeleBot('5803732373:AAFZBkx6X0eVwBl43ZOtkkFJNenMFuZqjn4', parse_mode='html')
+bot = telebot.TeleBot('TOKEN', parse_mode='html')
 
 PHOTO = {'Формулы сокращенного умножения': '301', 'Арифметическая прогрессия': '302',
          'Геометрическая прогрессия': '303',
