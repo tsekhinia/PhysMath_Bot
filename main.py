@@ -3,7 +3,7 @@ from telebot import types
 import time
 import json
 
-bot = telebot.TeleBot('5803732373:AAFZBkx6X0eVwBl43ZOtkkFJNenMFuZqjn4', parse_mode='html')
+bot = telebot.TeleBot('TOKEN', parse_mode='html')
 
 with open("PHOTO.json", "r") as d:
     photo_json = d.read()
